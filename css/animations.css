@@ -1,0 +1,102 @@
+/* ===========================================================
+   AURELIA & BAY — Animations
+   =========================================================== */
+
+@keyframes rippleAnim {
+  to { transform: scale(3); opacity: 0; }
+}
+
+@keyframes pulseLoader {
+  0%, 100% { opacity: 0.5; transform: scale(0.94); }
+  50% { opacity: 1; transform: scale(1.02); }
+}
+
+@keyframes scrollCue {
+  0% { top: -100%; }
+  100% { top: 100%; }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes heroZoomOut {
+  from { transform: scale(1.08); }
+  to { transform: scale(1); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Reveal-on-scroll utility */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-zoom {
+  opacity: 0;
+  transform: scale(0.94);
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+}
+.reveal-zoom.in-view { opacity: 1; transform: scale(1); }
+
+/* stagger children */
+.reveal-group .reveal:nth-child(1) { transition-delay: 0s; }
+.reveal-group .reveal:nth-child(2) { transition-delay: 0.08s; }
+.reveal-group .reveal:nth-child(3) { transition-delay: 0.16s; }
+.reveal-group .reveal:nth-child(4) { transition-delay: 0.24s; }
+.reveal-group .reveal:nth-child(5) { transition-delay: 0.32s; }
+.reveal-group .reveal:nth-child(6) { transition-delay: 0.4s; }
+.reveal-group .reveal:nth-child(7) { transition-delay: 0.48s; }
+.reveal-group .reveal:nth-child(8) { transition-delay: 0.56s; }
+
+.hero-bg { animation: heroZoomOut 1.6s var(--ease) forwards; }
+
+.page-enter { animation: fadeIn 0.45s var(--ease); }
+
+.spinner {
+  width: 18px; height: 18px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal, .reveal-zoom { opacity: 1; transform: none; }
+}
