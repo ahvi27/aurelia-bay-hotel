@@ -914,7 +914,7 @@ Templates.footer = () => `
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2026 Aurelia &amp; Bay Hotel. All rights reserved.</span>
+<span>&copy; 2026 Aurelia &amp; Bay Hotel. Built with care.</span>
       <div><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
     </div>
   </div>
